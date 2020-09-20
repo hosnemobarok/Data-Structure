@@ -1,6 +1,3 @@
-'''
-        Linked List Traversal
-'''
 
 # A simple Python program for traversal of a linked list
 
