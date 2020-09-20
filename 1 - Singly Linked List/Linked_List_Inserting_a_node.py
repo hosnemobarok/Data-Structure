@@ -102,7 +102,6 @@ class LinkedList:
 			temp = temp.next
 
 
-
 # Code execution starts here
 if __name__=='__main__':
 
