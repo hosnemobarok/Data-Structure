@@ -1,11 +1,40 @@
+''''
+        # printllist()      Time complexity   : O(n)
+                            space complexity  : O(1)
+
+        # push()            Time complexity   : O(1)
+                            Space complexity  : O(1)
+
+        # append()          Time complexity   : O(n)
+                            space complexity  : O(1)
+
+        # prepend()         Time complexity   : O(1)
+                            space complexity  : O(1)
+
+        # searching()       Time complexity   : O(n)
+                            space complexity  : O(1)
+
+
+        # inserting()       Time complexity   : O(n)
+                            space complexity  : O(1)
+
+        # remove()          Time complexity   : O(n)
+                            space complexity  : O(1)
+
+'''
+
+# Node class
 class Node:
     def __init__(self,data=None, next=None):
-        self.data = data
-        self.next = next
+        self.data = data # Assign data
+        self.next = next # Initialize next as null
 
 
+# Linked List class contains a Node object
 class Linkedlist:
     def __init__(self):
+        
+        # Function to initialize head
         self.head = None
 
     # linked list traverse
