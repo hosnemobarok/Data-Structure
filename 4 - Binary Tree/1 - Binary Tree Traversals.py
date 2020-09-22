@@ -2,8 +2,15 @@
     Inorder (Left, Root, Right) : 4 2 5 1 3
     Preorder (Root, Left, Right) : 1 2 4 5 3
     Postorder (Left, Right, Root) : 4 5 2 3 1
-
+    
+    
+    
+    
+    Inorder function	:->  time complexity	: O(n)
+    Preorder function	:->  time complexity	: O(n)
+    Postorder function	:->  time complexity	: O(n)
 '''
+
 # Python program to for tree traversals
 # Binary Tree
 class Node:
