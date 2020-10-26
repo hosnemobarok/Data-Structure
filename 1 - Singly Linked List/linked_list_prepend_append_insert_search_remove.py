@@ -33,7 +33,7 @@ class Node:
 # Linked List class contains a Node object
 class Linkedlist:
     def __init__(self):
-        
+
         # Function to initialize head
         self.head = None
 
@@ -65,17 +65,7 @@ class Linkedlist:
         current_node.next = self.head
         self.head = current_node
 
-    # linked list searching node
-    def searching(self, item):
-        current_node = self.head
-        while current_node:
-            if current_node.data == item:
-                return True
-            current_node = current_node.next
-
-        return False
-
-    # linked list Insert at the beginning
+        # linked list Insert at the beginning
     def inserting(self, prev, new_data):
         if prev is None:
             print('The given previous node must in LinkedList.')
@@ -86,29 +76,44 @@ class Linkedlist:
         prev.next = node
 
 
-    # linked list remove node
-    def remove(self, item):
-        # Store head node
-        temp = self.head
-        if temp == None:
+
+    # linked list searching node
+    def searching(self, key):
+        if self.head is None:
+            return False
+
+        if self.head.data == key:
+            return True
+
+        current = self.head.next
+        while current is not None:
+            if current.data == key:
+                return True
+            current = current.next
+        else:
+            return False
+
+
+    # linked list remove node.
+    def remove(self, key):
+        if self.head is None:
             return
 
-        # If head node itself holds the key to be deleted
-        if temp is not None:
-            if temp.data == item:
-                self.head = temp.next
-                temp = None
-                return
+        if self.head.data == key:
+            self.head = self.head.next
+            return
 
-        while temp is not None:
-            if temp.data == item:
-                break
-            prev = temp
-            temp = temp.next
+        current = self.head
+        while current.next is not None:
+            if current.next.data == key:
+                current.next = current.next.next
+
+            else:
+                current = current.next
+
+        return current
 
 
-        prev.next = temp.next
-        temp = None
 
 
 # Code execution starts here
@@ -120,20 +125,24 @@ if __name__ == '__main__':
     llist.append('b')
     llist.prepend('1')
     llist.append(100)
+    print("Print Linkedlist:")
     llist.printllist()
+    print('\n')
 
     #inserting
+    print("Insert Node:->mobarok")
     llist.inserting(llist.head.next.next, 'mobarok')
     llist.printllist()
+    print('\n')
 
     #remove
-    llist.remove('b')
-
+    print("Remove Node:-> 100")
+    llist.remove(100)
     llist.printllist()
-
+    print('\n')
 
     #searching
-    print()
+    print('Searching Node:-> 1')
     if llist.searching('1'):
         print("Yes")
     else:
