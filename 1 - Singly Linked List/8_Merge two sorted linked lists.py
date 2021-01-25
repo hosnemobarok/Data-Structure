@@ -5,10 +5,13 @@
     Space Complexity    :
 
 '''
+
+
 class Node:
     def __init__(self, data):
         self.data = data
         self.next = None
+
 
 class Linkedlist:
     def __init__(self):
@@ -20,7 +23,6 @@ class Linkedlist:
             print(current_node.data, end=' ')
 
             current_node = current_node.next
-
 
     def addTwolist(self, new_data):
         current_node = Node(new_data)
@@ -36,29 +38,20 @@ class Linkedlist:
 
 
 def mergeSort(A_head, B_head):
-    dummyNode = Node(0)
-    tail = dummyNode
+    if A_head is None:
+        return B_head
 
-    while True:
-        if A_head is None:
-            tail.next = B_head
-            break
+    if B_head is None:
+        return A_head
 
-        if B_head is None:
-            tail.next = A_head
-            break
 
-        if A_head.data <= B_head.data:
-            tail.next = A_head
-            A_head = A_head.next
+    if A_head.data < B_head.data:
+        A_head.next = mergeSort(A_head.next, B_head)
+        return A_head
 
-        else:
-            tail.next = B_head
-            B_head = B_head.next
-
-        tail = tail.next
-
-    return dummyNode.next
+    else:
+        B_head.next = mergeSort(B_head.next, A_head)
+        return B_head
 
 
 if __name__ == '__main__':
@@ -81,16 +74,12 @@ if __name__ == '__main__':
 
     listA.printlist()
 
-
-
-
-
 """
 #User function Template for python3
 '''
 	Function to merge two sorted lists in one
 	using constant space.
-	
+
 	Function Arguments: head_a and head_b (head reference of both the sorted lists)
 	Return Type: head of the obtained list after merger.
 
@@ -107,27 +96,27 @@ def sortedMerge(head_A, head_B):
     # code here
     dummyNode = Node(0)
     tail = dummyNode
-    
+
     while True:
         if head_A is None:
             tail.next = head_B
             break
-        
+
         if head_B is None:
             tail.next = head_A
             break
-        
+
         if head_A.data <= head_B.data:
             tail.next = head_A
             head_A = head_A.next
-            
+
         else:
             tail.next = head_B
             head_B = head_B.next
-            
+
         tail = tail.next
-        
-    
+
+
     return dummyNode.next
 
 
@@ -146,7 +135,7 @@ class LinkedList:
     def __init__(self):
         self.head = None
         self.tail = None
-    
+
     # creates a new node with given value and appends it at the end of the linked list
     def append(self, new_value):
         new_node = Node(new_value)
@@ -156,7 +145,7 @@ class LinkedList:
             return
         self.tail.next = new_node
         self.tail = new_node
-        
+
 # prints the elements of linked list
 def printList(n):
     while n is not None:
@@ -167,19 +156,19 @@ def printList(n):
 if __name__ == '__main__':
     for _ in range(int(input())):
         n,m = map(int, input().strip().split())
-        
+
         a = LinkedList() # create a new linked list 'a'.
         b = LinkedList() # create a new linked list 'b'.
-        
+
         nodes_a = list(map(int, input().strip().split()))
         nodes_b = list(map(int, input().strip().split()))
-        
+
         for x in nodes_a:
             a.append(x)
-        
+
         for x in nodes_b:
             b.append(x)
-        
+
         printList(sortedMerge(a.head,b.head))
 
 # } Driver Code Ends
