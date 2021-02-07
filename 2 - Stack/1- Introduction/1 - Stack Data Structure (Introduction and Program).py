@@ -30,6 +30,9 @@ class Stack:
         return 'sorry stack is empty'
 
 
+    def reverse_stack(self):
+        return self.stack[::-1]
+
 if __name__ == '__main__':
     s = Stack()
 
@@ -55,7 +58,10 @@ if __name__ == '__main__':
     print('\nStack:->', end=" ")
     print(s.stack)
 
-    print("\nStack Size:->", s.size)
-
+    # Reversed Stack
+    print('\nReversed Stack:->', s.reverse_stack())
     # Stack top element print
     print('\nTop Element:->', s.stack_top_element())
+
+    # Stack Size
+    print("\nStack Size:->", s.size)
