@@ -2,33 +2,33 @@
 
 class Queue:
     def __init__(self):
-        self.queue = []
-        self.stack = []
+        self.s1 = []
+        self.s2 = []
 
 
     def enQueue(self, data):
-        self.queue.append(data)
+        self.s1.append(data)
 
-    def print_qeue(self):
-        return self.queue
+    def print_stack(self):
+        return self.s1
 
     def deQueue(self):
-        if len(self.queue) == 0 and len(self.stack) == 0:
+        if len(self.s1) == 0 and len(self.s2) == 0:
             print('Queue is Empty!')
 
-        elif len(self.stack) == 0 and len(self.queue) > 0:
+        elif len(self.s2) == 0 and len(self.s1) > 0:
 
-            while len(self.queue):
+            while len(self.s1):
                 # Queue last element store
-                q_last_val = self.queue.pop()
+                q_last_val = self.s1.pop()
 
                 # stack insert queue last element
-                self.stack.append(q_last_val)
+                self.s2.append(q_last_val)
 
-            return self.stack.pop()
+            return self.s2.pop()
 
         else:
-            return self.stack.pop()
+            return self.s2.pop()
 
 
 # Driver code
@@ -39,8 +39,7 @@ if __name__ == '__main__':
     q.enQueue('Asraful')
     q.enQueue('Araf')
 
-    print("Queue:->", q.print_qeue())
+    print("Stack:->", q.print_stack())
 
     print('\nDQ:->', q.deQueue(), q.deQueue())
-
 
