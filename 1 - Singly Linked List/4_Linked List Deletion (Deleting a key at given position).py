@@ -19,20 +19,15 @@ class Linkedlist:
 
 
 	def deletePositionNode(self, position):
-		current_node = self.head
-
-		if position == 1:
+		if position == 0:
 			self.head = self.head.next
-			current_node = None
-			return
 
-		i = 1
-		while position-1 > i:
-			current_node = current_node.next
-			i += 1
+		else:
+			node = self.head
+			for _ in range(position - 1):
+				node = node.next
 
-		temp = current_node.next
-		current_node.next = temp.next
+			node.next = node.next.next
 
 		return self.head
 
@@ -45,6 +40,7 @@ class Linkedlist:
 			current_node = current_node.next
 
 
+
 if __name__ == '__main__':
 
 	llist = Linkedlist()
@@ -54,6 +50,10 @@ if __name__ == '__main__':
 	llist.push(4)
 	llist.push(1)
 
-	llist.deletePositionNode(1)
+	print("Before linkedlist:->", end=" ")
+	llist.printlist()
 
+	llist.deletePositionNode(3)
+
+	print('\nAfter linkedlist:->', end=" ")
 	llist.printlist()
