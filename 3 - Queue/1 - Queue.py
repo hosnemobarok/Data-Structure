@@ -1,48 +1,43 @@
-Queue = []
+# Queue implementation in Python
 
-# Adding elements to the queue
-Queue.append(1)
-Queue.append(2)
-Queue.append(3)
-Queue.append(4)
-print("Initial queue")
-print(Queue)
-print()
+class Queue:
 
+    def __init__(self):
+        self.queue = []
+        self.size = 0
 
-# Removing elements from the queue
-print("\nElements dequeued from queue")
-print(Queue.pop(0))
-print(Queue.pop(0))
-print(Queue.pop(0))
+    # Add an element
+    def enqueue(self, item):
+        self.queue.append(item)
+        self.size += 1
 
-print("\nQueue after removing elements")
-print(Queue)
+    # Remove an element
+    def dequeue(self):
+        if len(self.queue) < 1:
+            return None
 
+        self.size -= 1
+        return self.queue.pop(0)
 
-
-#2nd code-----------------------------------------------
-# using collections.dequeue
-from collections import deque
-
-# Initializing a queue
-q = deque()
-
-# Adding elements to a queue
-q.append('a')
-q.append('b')
-q.append('c')
-q.append('c')
+    # Display  the queue
+    def display(self):
+        print(self.queue)
 
 
-print("Initial queue")
-print(q)
+if __name__ == '__main__':
 
-# Removing elements from a queue
-print("\nElements dequeued from the queue")
-print(q.popleft())
-print(q.popleft())
-print(q.popleft())
+    q = Queue()
+    q.enqueue(1)
+    q.enqueue(2)
+    q.enqueue(3)
+    q.enqueue(4)
+    q.enqueue(5)
 
-print("\nQueue after removing elements")
-print(q)
+    q.display()
+
+    q.dequeue()
+    q.dequeue()
+
+    print("After removing an element")
+    q.display()
+    print('\nQueue size:->', q.size)
