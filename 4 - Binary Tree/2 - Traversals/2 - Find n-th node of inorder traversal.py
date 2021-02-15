@@ -17,7 +17,6 @@ def Nth_node_inorder(root, n):
         return
 
     if count[0] <= n:
-        print('c', count[0], '<=', n)
         Nth_node_inorder(root.left_child, n)
         count[0] += 1
 
